@@ -28,5 +28,4 @@ variable "handler" {
 variable "env" {
   description = "The list of environment variables"
   type        = "map"
-  default     = {}
 }

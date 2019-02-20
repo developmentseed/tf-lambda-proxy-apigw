@@ -45,7 +45,7 @@ variable "lambda_handler" {
 
 variable "lambda_env" {
   description = "The list of environment variables"
-  type        = "list"
+  type        = "map"
 }
 
 ####################
