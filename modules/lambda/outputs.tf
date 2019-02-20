@@ -6,7 +6,7 @@ output "id" {
   value = "${aws_lambda_function.lambda.id}"
 }
 
-output "larn" {
+output "arn" {
   value = "${aws_lambda_function.lambda.arn}"
 }
 
