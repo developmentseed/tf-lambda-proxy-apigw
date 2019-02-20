@@ -18,7 +18,7 @@ Include this repository as a module in your existing terraform code:
 .. code-block::
 
     module "lambda-proxy-api" {
-        source         = "git::https://github.com/developmentseed/tf-lambda-proxy-apigw.git"
+        source         = "git@github.com:developmentseed/tf-lambda-proxy-apigw.git"
 
         # General options
         project                  = "${var.project}"
@@ -26,7 +26,7 @@ Include this repository as a module in your existing terraform code:
         region                   = "${var.region}"
 
         # Lambda options
-        lambda_name              = "${var.lambda_name}""
+        lambda_name              = "${var.lambda_name}"
         lambda_runtime           = "${var.lambda_runtime}"
         lambda_memory            = "${var.lambda_memory}"
         lambda_timeout           = "${var.lambda_timeout}"
