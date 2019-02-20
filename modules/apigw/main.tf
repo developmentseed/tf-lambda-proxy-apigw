@@ -22,7 +22,7 @@ resource "aws_api_gateway_method" "request_method" {
 
 resource "aws_api_gateway_integration" "request_integration" {
   rest_api_id = "${aws_api_gateway_rest_api.api.id}"
-  resource_id = "${aws_api_gateway_resource.proxy.resource_id}"
+  resource_id = "${aws_api_gateway_method.request_method.resource_id}"
   http_method = "${aws_api_gateway_method.request_method.http_method}"
   type        = "AWS_PROXY"
   uri         = "${var.lambda_arn_invoke}"
