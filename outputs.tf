@@ -1,5 +1,5 @@
 output "api_url" {
-  value = "${module.api.api_url}"
+  value = "${module.api.url}"
 }
 
 output "api_methods" {
@@ -7,17 +7,17 @@ output "api_methods" {
 }
 
 output "lambda_name" {
-  value = "${module.lambda.lamda_fuction_name}"
+  value = "${module.lambda.name}"
 }
 
-output "lambda_ard" {
-  value = "${module.lambda.lamda_fuction_arn}"
+output "lambda_arn" {
+  value = "${module.lambda.arn}"
 }
 
 output "lambda_role" {
-  value = "${module.lambda.lamda_role_name}"
+  value = "${module.lambda.role_name}"
 }
 
 output "lambda_role_id" {
-  value = "${module.lambda.lamda_role_id}"
+  value = "${module.lambda.role_id}"
 }

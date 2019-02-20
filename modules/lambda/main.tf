@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "lambda" {
-  function_name = "${var.function_name}"
-  description   = "Lambda for ${var.function_name}"
+  function_name = "${var.name}"
+  description   = "Lambda for ${var.name}"
   handler       = "${var.handler}"
   runtime       = "${var.runtime}"
   memory_size   = "${var.memory}"
@@ -17,7 +17,7 @@ resource "aws_lambda_function" "lambda" {
 }
 
 resource "aws_iam_role" "lambda_role" {
-  name = "${var.function_name}-role"
+  name = "${var.name}-role"
 
   assume_role_policy = <<EOF
 {

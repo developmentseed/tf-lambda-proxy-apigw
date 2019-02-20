@@ -1,9 +1,5 @@
-variable "function_name" {
+variable "name" {
   description = "The name of the lambda function"
-}
-
-variable "stage_name" {
-  description = "The stage name)"
 }
 
 variable "runtime" {

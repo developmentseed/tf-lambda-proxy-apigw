@@ -2,7 +2,7 @@ variable "name" {
   description = "The name of the REST API"
 }
 
-variable "stage_name" {
+variable "stage" {
   description = "The stage name for the API deployment (production/staging/etc..)"
 }
 
