@@ -26,12 +26,12 @@ variable "lambda_runtime" {
 
 variable "lambda_memory" {
   description = "The memory size of the lambda function"
-  default     = "128"
+  default     = 128
 }
 
 variable "lambda_timeout" {
   description = "The timeout of the lambda function"
-  default     = "3"
+  default     = 3
 }
 
 variable "lambda_package" {
@@ -48,6 +48,12 @@ variable "lambda_env" {
   type        = "map"
 }
 
+variable "lambda_tags" {
+  description = "Tags used for the AWS Lambda resources"
+  type        = "map"
+  default     = {}
+}
+
 ####################
 # API Gateway
 ####################
@@ -59,7 +65,7 @@ variable "binary_type" {
 
 variable "minimum_compression_size" {
   description = "The minimum response size to compress for the REST API"
-  default     = "0"
+  default     = 0
 }
 
 variable "method" {

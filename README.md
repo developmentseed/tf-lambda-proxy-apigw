@@ -26,6 +26,7 @@ module "lambda_proxy_api" {
     lambda_package           = "${var.lambda_package}"
     lambda_handler           = "${var.lambda_handler}"
     lambda_env               = "${var.lambda_env}"
+    lambda_tags              = "${var.lambda_tags}"
 
     # API Gateway options
     binary_type              = "${var.binary_type}"
@@ -78,6 +79,7 @@ EOF
 | lambda_package           | The lambda package name                                   | No       | package.zip |
 | lambda_handler           | The handler name of the lambda function                   | Yes      |             |
 | lambda_env               | The list of environment variables for the lambda function | Yes      |             |
+| lambda_tags              | Tags used for the AWS Lambda resources                    | No       |             |
 | binary_type              | The list of binary media types supported by the RestApi   | No       | ["\*/\*"]   |
 | minimum_compression_size | Minimum response size to compress for the REST API        | No       | 0           |
 | method                   | The HTTP method for the REST API                          | Yes      | ANY         |

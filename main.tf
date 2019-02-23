@@ -28,4 +28,5 @@ module "lambda" {
   timeout = "${var.lambda_timeout}"
   package = "${var.lambda_package}"
   env     = "${var.lambda_env}"
+  tags    = "${var.lambda_tags}"
 }

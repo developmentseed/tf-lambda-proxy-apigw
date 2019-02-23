@@ -11,6 +11,8 @@ resource "aws_lambda_function" "lambda" {
   source_code_hash = "${base64sha256(file("${var.package}"))}"
   publish          = true
 
+  tags = "${var.tags}"
+
   environment {
     variables = "${var.env}"
   }

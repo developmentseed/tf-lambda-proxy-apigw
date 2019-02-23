@@ -8,12 +8,12 @@ variable "runtime" {
 
 variable "memory" {
   description = "The memory size of the function"
-  default     = "128"
+  default     = 128
 }
 
 variable "timeout" {
   description = "The timeout of the function"
-  default     = "3"
+  default     = 3
 }
 
 variable "package" {
@@ -28,4 +28,10 @@ variable "handler" {
 variable "env" {
   description = "The list of environment variables"
   type        = "map"
+}
+
+variable "tags" {
+  description = "Tags used for the AWS resources created by this template"
+  type        = "map"
+  default     = {}
 }

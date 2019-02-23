@@ -14,7 +14,7 @@ variable "binary_type" {
 
 variable "minimum_compression_size" {
   description = "The list of binary media types supported by the RestApi"
-  default     = "0"
+  default     = 0
 }
 
 variable "method" {

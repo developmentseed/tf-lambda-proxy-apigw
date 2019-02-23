@@ -14,6 +14,12 @@ variable "stage_name" {
   default     = "production"
 }
 
+variable "tags" {
+  description = "Tags used for the AWS resources created by this template"
+  type        = "map"
+  default     = {}
+}
+
 # API Gateway + Lambda
 module "lambda_api" {
   source = "../../"
@@ -26,14 +32,16 @@ module "lambda_api" {
   # Lambda options
   lambda_name    = "api"
   lambda_runtime = "python3.6"
-  lambda_memory  = "3008"
-  lambda_timeout = "10"
+  lambda_memory  = 3008
+  lambda_timeout = 10
   lambda_package = "package.zip"
   lambda_handler = "handlers.lambda_handler"
 
   lambda_env = {
     PYTHONWARNINGS = "ignore"
   }
+
+  lambda_tags = "${var.tags}"
 }
 
 # Extent Lambda role
@@ -48,7 +56,7 @@ resource "aws_iam_role_policy" "permissions" {
     {
       "Effect": "Allow",
       "Action": [
-        "s3:*",
+        "s3:*"
       ],
       "Resource": "arn:aws:s3:::${var.bucket}*"
     }
