@@ -7,8 +7,6 @@ Note: This module was developed to support Lambda dynamic tilling for python Lam
 
 ## How to use this module
 
-The default configuration of this module is optimized for python 3.6 lambda function and simple configuration.
-
 ```terraform
 module "lambda_proxy_api" {
     source         = "git@github.com:developmentseed/tf-lambda-proxy-apigw.git"
@@ -78,7 +76,7 @@ EOF
 | lambda_timeout           | The timeout of the lambda function                        | No       | 3           |
 | lambda_package           | The lambda package name                                   | No       | package.zip |
 | lambda_handler           | The handler name of the lambda function                   | Yes      |             |
-| lambda_env               | The list of environment variables for the lambda function | Yes      |             |
+| lambda_env               | The list of environment variables for the lambda function | No       |             |
 | lambda_tags              | Tags used for the AWS Lambda resources                    | No       |             |
 | binary_type              | The list of binary media types supported by the RestApi   | No       | ["\*/\*"]   |
 | minimum_compression_size | Minimum response size to compress for the REST API        | No       | 0           |

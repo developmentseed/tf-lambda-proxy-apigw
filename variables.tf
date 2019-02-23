@@ -46,6 +46,7 @@ variable "lambda_handler" {
 variable "lambda_env" {
   description = "The list of environment variables"
   type        = "map"
+  default     = {}
 }
 
 variable "lambda_tags" {

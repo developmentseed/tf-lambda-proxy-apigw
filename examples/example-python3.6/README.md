@@ -14,5 +14,5 @@ terraform init
 
 terraform plan
 
-terraform apply -var stage_name=test -var bucket=my-bucket -var region=us-west-2 -var tags='{Project="test"}'
+terraform apply -var stage_name=test -var bucket=my-bucket -var region=us-west-2
 ```
