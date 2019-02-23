@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 ####################
-# API
+# API Gateway
 ####################
 module "api" {
   source                   = "./modules/apigw"
