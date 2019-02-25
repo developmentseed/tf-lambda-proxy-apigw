@@ -3,7 +3,7 @@
 
 Terraform module to create AWS [Lambda](https://www.terraform.io/docs/providers/aws/r/lambda_function.html) and API gateway with COORS, binary support and `{proxy+}` integration.
 
-Note: This module was developed to support Lambda dynamic tilling for python Lambda functions.
+Note: This module was developed to support dynamic tiling for python Lambda functions and was tested using [lambda-proxy](https://github.com/vincentsarago/lambda-proxy).
 
 ## How to use this module
 
