@@ -55,6 +55,18 @@ variable "lambda_tags" {
   default     = {}
 }
 
+variable lambda_security_group_ids {
+  description = "VPC security group IDs."
+  default     = []
+  type        = "list"
+}
+
+variable lambda_subnet_ids {
+  description = "VPC subnet IDs."
+  default     = []
+  type        = "list"
+}
+
 ####################
 # API Gateway
 ####################
