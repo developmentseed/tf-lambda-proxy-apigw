@@ -1,5 +1,10 @@
+terraform {
+  required_version = "~>0.11"
+}
+
 provider "aws" {
-  region = "${var.region}"
+  region  = "${var.region}"
+  version = "~> 1.0"
 }
 
 ####################
@@ -20,13 +25,15 @@ module "api" {
 # Lambda
 ####################
 module "lambda" {
-  source  = "./modules/lambda"
-  name    = "${var.project}-${var.lambda_name}-${var.stage_name}"
-  handler = "${var.lambda_handler}"
-  runtime = "${var.lambda_runtime}"
-  memory  = "${var.lambda_memory}"
-  timeout = "${var.lambda_timeout}"
-  package = "${var.lambda_package}"
-  env     = "${var.lambda_env}"
-  tags    = "${var.lambda_tags}"
+  source             = "./modules/lambda"
+  name               = "${var.project}-${var.lambda_name}-${var.stage_name}"
+  handler            = "${var.lambda_handler}"
+  runtime            = "${var.lambda_runtime}"
+  memory             = "${var.lambda_memory}"
+  timeout            = "${var.lambda_timeout}"
+  package            = "${var.lambda_package}"
+  env                = "${var.lambda_env}"
+  tags               = "${var.lambda_tags}"
+  security_group_ids = "${var.lambda_security_group_ids}"
+  subnet_ids         = "${var.lambda_subnet_ids}"
 }
