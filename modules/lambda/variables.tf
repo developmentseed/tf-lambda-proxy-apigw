@@ -35,3 +35,15 @@ variable "tags" {
   type        = "map"
   default     = {}
 }
+
+variable security_group_ids {
+  description = "VPC security group IDs."
+  default     = []
+  type        = "list"
+}
+
+variable subnet_ids {
+  description = "VPC subnet IDs."
+  default     = []
+  type        = "list"
+}

@@ -16,6 +16,11 @@ resource "aws_lambda_function" "lambda" {
   environment {
     variables = "${var.env}"
   }
+
+  vpc_config {
+    subnet_ids         = ["${var.subnet_ids}"]
+    security_group_ids = ["${var.security_group_ids}"]
+  }
 }
 
 resource "aws_iam_role" "lambda_role" {
