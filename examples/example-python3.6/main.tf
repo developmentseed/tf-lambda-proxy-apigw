@@ -1,11 +1,11 @@
 # Variables
 variable "region" {
-  type    = "string"
+  type    = string
   default = "us-east-1"
 }
 
 variable "bucket" {
-  type    = "string"
+  type    = string
   default = "a-bucket"
 }
 
@@ -20,8 +20,8 @@ module "lambda_api" {
 
   # General options
   project    = "my_project"
-  stage_name = "${var.stage_name}"
-  region     = "${var.region}"
+  stage_name = var.stage_name
+  region     = var.region
 
   # Lambda options
   lambda_name    = "api"
@@ -35,7 +35,7 @@ module "lambda_api" {
 # Extent Lambda role
 resource "aws_iam_role_policy" "permissions" {
   name = "${module.lambda_api.lambda_role}-bucket-permission"
-  role = "${module.lambda_api.lambda_role_id}"
+  role = module.lambda_api.lambda_role_id
 
   policy = <<EOF
 {
@@ -56,5 +56,5 @@ EOF
 # Outputs
 output "endpoint" {
   description = "endpoint url"
-  value       = "${module.lambda_api.api_url}"
+  value       = module.lambda_api.api_url
 }

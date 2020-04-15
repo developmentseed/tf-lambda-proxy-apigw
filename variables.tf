@@ -45,26 +45,26 @@ variable "lambda_handler" {
 
 variable "lambda_env" {
   description = "The list of environment variables"
-  type        = "map"
+  type        = map
   default     = {}
 }
 
 variable "lambda_tags" {
   description = "Tags used for the AWS Lambda resources"
-  type        = "map"
+  type        = map
   default     = {}
 }
 
 variable lambda_security_group_ids {
   description = "VPC security group IDs."
   default     = []
-  type        = "list"
+  type        = list
 }
 
 variable lambda_subnet_ids {
   description = "VPC subnet IDs."
   default     = []
-  type        = "list"
+  type        = list
 }
 
 ####################
@@ -72,7 +72,7 @@ variable lambda_subnet_ids {
 ####################
 variable "binary_type" {
   description = "The list of binary media types supported by the RestApi"
-  type        = "list"
+  type        = list
   default     = ["*/*"]
 }
 

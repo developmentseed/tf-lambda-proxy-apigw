@@ -1,25 +1,25 @@
 resource "aws_lambda_function" "lambda" {
-  function_name = "${var.name}"
+  function_name = var.name
   description   = "Lambda for ${var.name}"
-  handler       = "${var.handler}"
-  runtime       = "${var.runtime}"
-  memory_size   = "${var.memory}"
-  timeout       = "${var.timeout}"
-  role          = "${aws_iam_role.lambda_role.arn}"
+  handler       = var.handler
+  runtime       = var.runtime
+  memory_size   = var.memory
+  timeout       = var.timeout
+  role          = aws_iam_role.lambda_role.arn
 
-  filename         = "${var.package}"
-  source_code_hash = "${base64sha256(file("${var.package}"))}"
+  filename         = var.package
+  source_code_hash = base64sha256(file(var.package))
   publish          = true
 
-  tags = "${var.tags}"
+  tags = var.tags
 
   environment {
-    variables = "${var.env}"
+    variables = var.env
   }
 
   vpc_config {
-    subnet_ids         = ["${var.subnet_ids}"]
-    security_group_ids = ["${var.security_group_ids}"]
+    subnet_ids         = [var.subnet_ids]
+    security_group_ids = [var.security_group_ids]
   }
 }
 
@@ -45,7 +45,7 @@ EOF
 
 resource "aws_iam_role_policy" "logs" {
   name = "${aws_iam_role.lambda_role.name}-logs"
-  role = "${aws_iam_role.lambda_role.id}"
+  role = aws_iam_role.lambda_role.id
 
   policy = <<EOF
 {
