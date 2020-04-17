@@ -27,23 +27,23 @@ variable "handler" {
 
 variable "env" {
   description = "The list of environment variables"
-  type        = "map"
+  type        = map
 }
 
 variable "tags" {
   description = "Tags used for the AWS resources created by this template"
-  type        = "map"
+  type        = map
   default     = {}
 }
 
 variable security_group_ids {
   description = "VPC security group IDs."
   default     = []
-  type        = "list"
+  type        = list
 }
 
 variable subnet_ids {
   description = "VPC subnet IDs."
   default     = []
-  type        = "list"
+  type        = list
 }

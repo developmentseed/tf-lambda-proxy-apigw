@@ -12,24 +12,24 @@ module "lambda_proxy_api" {
     source         = "git@github.com:developmentseed/tf-lambda-proxy-apigw.git"
 
     # General options
-    project                  = "${var.project}"
-    stage_name               = "${var.stage_name}"
-    region                   = "${var.region}"
+    project                  = var.project
+    stage_name               = var.stage_name
+    region                   = var.region
 
     # Lambda options
-    lambda_name              = "${var.lambda_name}"
-    lambda_runtime           = "${var.lambda_runtime}"
-    lambda_memory            = "${var.lambda_memory}"
-    lambda_timeout           = "${var.lambda_timeout}"
-    lambda_package           = "${var.lambda_package}"
-    lambda_handler           = "${var.lambda_handler}"
-    lambda_env               = "${var.lambda_env}"
-    lambda_tags              = "${var.lambda_tags}"
+    lambda_name              = var.lambda_name
+    lambda_runtime           = var.lambda_runtime
+    lambda_memory            = var.lambda_memory
+    lambda_timeout           = var.lambda_timeout
+    lambda_package           = var.lambda_package
+    lambda_handler           = var.lambda_handler
+    lambda_env               = var.lambda_env
+    lambda_tags              = var.lambda_tags
 
     # API Gateway options
-    binary_type              = "${var.binary_type}"
-    minimum_compression_size = "${var.minimum_compression_size}"
-    method                   = "${var.method}"
+    binary_type              = var.binary_type
+    minimum_compression_size = var.minimum_compression_size
+    method                   = var.method
 }
 ```
 
@@ -37,8 +37,8 @@ module "lambda_proxy_api" {
 
 ```terraform
 resource "aws_iam_role_policy" "permissions" {
-  name = "${module.lambda_proxy_api.lambda_role}-bucket-permission"
-  role = "${module.lambda_proxy_api.lambda_role_id}"
+  name = module.lambda_proxy_api.lambda_role}-bucket-permission"
+  role = module.lambda_proxy_api.lambda_role_id
 
   policy = <<EOF
 {

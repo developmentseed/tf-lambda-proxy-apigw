@@ -1,9 +1,9 @@
 terraform {
-  required_version = "~>0.11"
+  required_version = "~>0.12"
 }
 
 provider "aws" {
-  region  = "${var.region}"
+  region  = var.region
   version = "~> 1.0"
 }
 
@@ -13,12 +13,12 @@ provider "aws" {
 module "api" {
   source                   = "./modules/apigw"
   name                     = "${var.project}-${var.lambda_name}-${var.stage_name}"
-  stage                    = "${var.stage_name}"
-  method                   = "${var.method}"
-  binary_type              = "${var.binary_type}"
-  minimum_compression_size = "${var.minimum_compression_size}"
-  lambda_arn               = "${module.lambda.arn}"
-  lambda_arn_invoke        = "${module.lambda.arn_invoke}"
+  stage                    = var.stage_name
+  method                   = var.method
+  binary_type              = var.binary_type
+  minimum_compression_size = var.minimum_compression_size
+  lambda_arn               = module.lambda.arn
+  lambda_arn_invoke        = module.lambda.arn_invoke
 }
 
 ####################
@@ -27,13 +27,13 @@ module "api" {
 module "lambda" {
   source             = "./modules/lambda"
   name               = "${var.project}-${var.lambda_name}-${var.stage_name}"
-  handler            = "${var.lambda_handler}"
-  runtime            = "${var.lambda_runtime}"
-  memory             = "${var.lambda_memory}"
-  timeout            = "${var.lambda_timeout}"
-  package            = "${var.lambda_package}"
-  env                = "${var.lambda_env}"
-  tags               = "${var.lambda_tags}"
-  security_group_ids = "${var.lambda_security_group_ids}"
-  subnet_ids         = "${var.lambda_subnet_ids}"
+  handler            = var.lambda_handler
+  runtime            = var.lambda_runtime
+  memory             = var.lambda_memory
+  timeout            = var.lambda_timeout
+  package            = var.lambda_package
+  env                = var.lambda_env
+  tags               = var.lambda_tags
+  security_group_ids = var.lambda_security_group_ids
+  subnet_ids         = var.lambda_subnet_ids
 }

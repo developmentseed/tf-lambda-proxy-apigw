@@ -8,7 +8,7 @@ variable "stage" {
 
 variable "binary_type" {
   description = "The list of binary media types supported by the RestApi"
-  type        = "list"
+  type        = list
   default     = ["*/*"]
 }
 
